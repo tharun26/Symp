@@ -136,7 +136,7 @@ public class MyActivity extends Activity {
                 fragment = new HomeFragment();
                 break;
             case 1:
-          //      fragment = new FindPeopleFragment();
+                fragment = new EventsFragment();
                 break;
             case 2:
            //     fragment = new PhotosFragment();

@@ -12,6 +12,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,6 +58,9 @@ public class NavDrawerListAdapter extends BaseAdapter {
         imgIcon.setImageResource(navDrawerItems.get(position).getIcon());
         txtTitle.setText(navDrawerItems.get(position).getTitle());
 
+
+
+
         // displaying count
         // check whether it set visible or not
         if(navDrawerItems.get(position).getCounterVisibility()){
@@ -64,6 +69,16 @@ public class NavDrawerListAdapter extends BaseAdapter {
             // hide the counter view
             txtCount.setVisibility(View.GONE);
         }
+
+        /*
+        Animation animationY = new TranslateAnimation(0, 0, parent.getHeight()/4, 0);
+
+        animationY.setDuration(1000);
+        convertView.startAnimation(animationY);
+        animationY = null;
+        */
+
+
 
         return convertView;
     }

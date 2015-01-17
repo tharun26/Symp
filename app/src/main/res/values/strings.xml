@@ -36,4 +36,26 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
 
+
+    <!-- Event Items -->
+    <string-array name="events">
+        <item>Secrets</item>
+        <item>Photo Competition</item>
+        <item>Robo Wars</item>
+        <item>Car Race</item>
+        <item>Auto Show</item>
+    </string-array>
+
+    <array name="events_images">
+        <item>@drawable/ic_cos</item>
+        <item>@drawable/enig1</item>
+        <item>@drawable/hpcbanner</item>
+        <item>@drawable/four1</item>
+        <item>@drawable/five2</item>
+
+    </array>
+
+
+
+
 </resources>
