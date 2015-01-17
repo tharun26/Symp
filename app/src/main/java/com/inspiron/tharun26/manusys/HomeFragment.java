@@ -7,16 +7,26 @@ package com.inspiron.tharun26.manusys;
 
 
 
-
+import com.flaviofaria.kenburnsview.KenBurnsView;
 import android.app.Fragment;
         import android.os.Bundle;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+import android.widget.ViewFlipper;
+import android.widget.ViewSwitcher;
+import com.flaviofaria.kenburnsview.Transition;
 
-public class HomeFragment extends Fragment  {
+import static com.flaviofaria.kenburnsview.KenBurnsView.TransitionListener;
+
+public class HomeFragment extends Fragment implements TransitionListener {
 
 
+    private static final int TRANSITIONS_TO_SWITCH = 1;
+
+    private ViewFlipper mViewSwitcher;
+
+    private int mTransitionsCount = 0;
 
 
     public HomeFragment(){}
@@ -25,14 +35,60 @@ public class HomeFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+/*
+        mViewSwitcher = (ViewSwitcher) getActivity().findViewById(R.id.viewSwitcher);
+
+        KenBurnsView img1 = (KenBurnsView) getActivity(). findViewById(R.id.img1);
+         img1.setTransitionListener(this);
+
+        KenBurnsView img2 = (KenBurnsView) getActivity(). findViewById(R.id.img2);
+        img2.setTransitionListener(this);
+*/
 
 
 
         return rootView;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        mViewSwitcher = (ViewFlipper) getActivity().findViewById(R.id.viewSwitcher);
+
+        KenBurnsView img1 = (KenBurnsView) getActivity(). findViewById(R.id.img1);
+        img1.setTransitionListener(this);
+
+        KenBurnsView img2 = (KenBurnsView) getActivity(). findViewById(R.id.img2);
+        img2.setTransitionListener(this);
+
+        KenBurnsView img3 = (KenBurnsView) getActivity(). findViewById(R.id.img3);
+        img3.setTransitionListener(this);
+
+        KenBurnsView img4 = (KenBurnsView) getActivity(). findViewById(R.id.img4);
+        img4.setTransitionListener(this);
 
 
+
+
+
+    }
+
+    @Override
+    public void onTransitionStart(Transition transition) {
+
+    }
+
+    @Override
+    public void onTransitionEnd(Transition transition) {
+        mTransitionsCount++;
+        if (mTransitionsCount == TRANSITIONS_TO_SWITCH) {
+            mViewSwitcher.showNext();
+            mTransitionsCount = 0;
+        }
+
+    }
 }
