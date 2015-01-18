@@ -9,15 +9,14 @@
 
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
-        <item >Home</item>
-        <item >Events</item>
-        <item >Workshops</item>
-        <item >Contact</item>
-        <item >Sponsors</item>
-        <item >About</item>
-        <item >Favourite</item>
+        <item>Home</item>
+        <item>Events</item>
+        <item>Workshops</item>
+        <item>Contact</item>
+        <item>Sponsors</item>
+        <item>About</item>
+        <item>Favourite</item>
         <item>Hot </item>
-
     </string-array>
 
     <!-- Nav Drawer List Item Icons -->
@@ -36,7 +35,6 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
 
-
     <!-- Event Items -->
     <string-array name="events">
         <item>Secrets</item>
@@ -52,10 +50,26 @@
         <item>@drawable/hpcbanner</item>
         <item>@drawable/four1</item>
         <item>@drawable/five</item>
-
     </array>
 
+    <string name="title_activity_event1">Event1Activity</string>
 
+
+    <string-array name="events_info">
+        <item>Introduction</item>
+        <item>Problem Statement</item>
+        <item>Rules</item>
+        <item>Prize</item>
+        <item>Contact</item>
+    </string-array>
+
+    <array name="events_info_images">
+        <item>@drawable/hpcbanner</item>
+        <item>@drawable/enig1</item>
+        <item>@drawable/hpcbanner</item>
+        <item>@drawable/four1</item>
+        <item>@drawable/five</item>
+    </array>
 
 
 </resources>

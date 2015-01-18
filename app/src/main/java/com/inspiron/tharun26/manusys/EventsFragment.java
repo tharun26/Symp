@@ -14,6 +14,7 @@ import con.inspiron.tharun26.manusys.model.EventItem;
 
 import android.app.Fragment;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -89,9 +90,11 @@ public class EventsFragment extends ListFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(getActivity(),
+               /* Toast.makeText(getActivity(),
                         "Item in position " + position + " clicked",
                         Toast.LENGTH_LONG).show();
+                */
+                displayView(position);
             }
         });
 
@@ -124,6 +127,44 @@ public class EventsFragment extends ListFragment {
 
         return rootView;
     }
+
+
+    private void displayView(int position) {
+        // update the main content by replacing fragments
+
+        switch (position) {
+            case 0:
+               /*
+                Toast.makeText(getActivity(),
+                        "Item in position " + position + " clicked",
+                        Toast.LENGTH_LONG).show();
+               */
+                Intent intent1=new Intent(getActivity(),Event1Activity.class);
+                startActivity(intent1);
+
+              //  fragment = new HomeFragment();
+                break;
+            case 1:
+              //  fragment = new EventsFragment();
+                break;
+            case 2:
+                //     fragment = new PhotosFragment();
+                break;
+            case 3:
+                //     fragment = new CommunityFragment();
+                break;
+            case 4:
+                //     fragment = new PagesFragment();
+                break;
+            case 5:
+                //     fragment = new WhatsHotFragment();
+                break;
+
+            default:
+                break;
+        }
+    }
+
 
 
 
