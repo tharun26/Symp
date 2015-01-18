@@ -19,8 +19,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -82,6 +84,17 @@ public class EventsFragment extends ListFragment {
         adapter = new EventListAdapter(getActivity(),event_Items);
         setListAdapter(adapter);
 
+        ListView list = getListView();
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Toast.makeText(getActivity(),
+                        "Item in position " + position + " clicked",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
 
 
 
@@ -98,9 +111,9 @@ public class EventsFragment extends ListFragment {
                 android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);
         */
-    }
+        }
 
-    @Override
+        @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
