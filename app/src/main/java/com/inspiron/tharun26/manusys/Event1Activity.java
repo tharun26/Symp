@@ -95,6 +95,7 @@ public class Event1Activity extends Activity  implements Callback, OnFlipListene
         if (position>0) {
 
             mFlipView.peakPrevious(false);
+
             //  mAdapter.addItems(5);
 
 

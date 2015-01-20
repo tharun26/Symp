@@ -72,4 +72,35 @@
     </array>
 
 
+    <string-array name="designation">
+        <item>Chairman</item>
+        <item>Treasurer</item>
+        <item>Coordinator</item>
+        <item>Vice Chairman</item>
+        <item>General Secretary</item>
+        <item>General</item>
+        <item>Workshops</item>
+        <item>Events</item>
+        <item>Design</item>
+        <item>Accomodation</item>
+        <item>Industrial Relation</item>
+        <item>Logistics</item>
+        <item>Marketing</item>
+        <item>QMS</item>
+        <item>TechTeam</item>
+        <item>WebTeam</item>
+
+    </string-array>
+
+    <array name="contact_images">
+        <item>@drawable/tharun</item>
+        <item>@drawable/ic_events</item>
+        <item>@drawable/ic_workshops</item>
+        <item>@drawable/ic_contacts</item>
+        <item>@drawable/ic_sponsors</item>
+        <item>@drawable/ic_about</item>
+        <item>@drawable/ic_favourites</item>
+        <item>@drawable/ic_hot</item>
+    </array>
+
 </resources>

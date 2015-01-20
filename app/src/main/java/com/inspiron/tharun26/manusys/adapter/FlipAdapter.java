@@ -78,11 +78,21 @@ public class FlipAdapter extends BaseAdapter implements OnClickListener {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if (convertView == null) {
-            LayoutInflater mInflater = (LayoutInflater)
-                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.page_event_1, null);
-        }
+
+
+            if(position<4) {
+                LayoutInflater mInflater = (LayoutInflater)
+                        context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = mInflater.inflate(R.layout.page_event_1, null);
+            }
+            else
+            {
+                LayoutInflater mInflater = (LayoutInflater)
+                        context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = mInflater.inflate(R.layout.page_event_contact, null);
+
+            }
+
             ImageView imgIcon = (ImageView) convertView.findViewById(R.id.imageView);
             TextView txtTitle = (TextView) convertView.findViewById(R.id.text_event_1);
             txtTitle.setText(eventInformation.get(position).getEvent_info_title());

@@ -16,7 +16,18 @@
         android:layout_alignParentStart="true"
         android:cropToPadding="false" />
 
+    <Button
+        android:id="@+id/first_page_event_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First"
+        android:layout_gravity="top|center_horizontal"
 
+
+        android:layout_above="@+id/last_page_event_1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp" />
 
     <TextView
         android:id="@+id/text_event_1"
@@ -32,6 +43,15 @@
         android:layout_alignEnd="@+id/first_page_event_1"
         android:textColor="#fff6f9e8" />
 
+    <Button
+        android:id="@+id/last_page_event_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/first_page_event_1"
+        android:layout_alignStart="@+id/first_page_event_1" />
 
 
 

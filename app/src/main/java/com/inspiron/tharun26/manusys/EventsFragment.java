@@ -40,7 +40,6 @@ public class EventsFragment extends ListFragment {
 
     public EventsFragment(){}
 
-
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);

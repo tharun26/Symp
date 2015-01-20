@@ -142,7 +142,7 @@ public class MyActivity extends Activity {
            //     fragment = new PhotosFragment();
                 break;
             case 3:
-           //     fragment = new CommunityFragment();
+               fragment = new ContactsFragment();
                 break;
             case 4:
            //     fragment = new PagesFragment();
