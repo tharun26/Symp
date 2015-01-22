@@ -26,8 +26,8 @@
         android:padding="5dp"
         android:gravity="center"
         android:id="@+id/event_name"
-        android:background="@color/list_divider"
+        android:background="@drawable/list_selector"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:alpha="128" />
+        />
 </RelativeLayout>
