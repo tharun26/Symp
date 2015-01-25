@@ -78,6 +78,7 @@ public class EventListAdapter extends BaseAdapter {
 
         }
 
+
         return convertView;
     }
 }
