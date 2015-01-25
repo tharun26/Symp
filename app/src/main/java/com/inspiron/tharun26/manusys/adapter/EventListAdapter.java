@@ -60,7 +60,8 @@ public class EventListAdapter extends BaseAdapter {
         img.setImageResource(eventItems.get(position).getIcon());
         txt.setText(eventItems.get(position).getEvent_title());
 
-        if(position%2==0) {
+        if(position%2==0)
+        {
             Animation animationX = new TranslateAnimation(parent.getWidth() / 4, 0, 0, 0);
 
             animationX.setDuration(500);
@@ -76,6 +77,7 @@ public class EventListAdapter extends BaseAdapter {
             animationX = null;
 
         }
+
         return convertView;
     }
 }

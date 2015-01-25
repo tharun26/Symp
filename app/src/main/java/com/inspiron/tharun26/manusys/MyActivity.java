@@ -70,7 +70,7 @@ GCM
 
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
-
+    BroadcastReceiver mHandleMessageReceiver = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +83,7 @@ GCM
             // Internet Connection is not present
             Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
             // stop executing code by return
-            return;
+          //  return;
         }
 
         name = "ManusysID";
@@ -96,7 +96,7 @@ GCM
         // while developing the app, then uncomment it when it's ready.
         GCMRegistrar.checkManifest(this);
 
-        BroadcastReceiver mHandleMessageReceiver = null;
+
         registerReceiver(mHandleMessageReceiver, new IntentFilter(
                 DISPLAY_MESSAGE_ACTION));
 
@@ -356,5 +356,20 @@ GCM
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    protected void onDestroy(){
+        super.onDestroy();
+        if (mRegisterTask != null) {
+            mRegisterTask.cancel(true);
+        }
+        try {
+            unregisterReceiver(mHandleMessageReceiver);
+            GCMRegistrar.onDestroy(this);
+        } catch (Exception e) {
+            Log.e("UnRegister Receiver Error", "> " + e.getMessage());
+        }
+
     }
 }
