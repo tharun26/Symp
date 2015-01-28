@@ -13,6 +13,7 @@ import android.app.Fragment;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher;
 import com.flaviofaria.kenburnsview.Transition;
@@ -56,7 +57,8 @@ public class HomeFragment extends Fragment implements TransitionListener {
     @Override
     public void onStart() {
         super.onStart();
-
+        //TextView tv = (TextView)getActivity().findViewById(R.id.mywidget);
+       // tv.setSelected(true);
         mViewSwitcher = (ViewFlipper) getActivity().findViewById(R.id.viewSwitcher);
 
         KenBurnsView img1 = (KenBurnsView) getActivity(). findViewById(R.id.img1);

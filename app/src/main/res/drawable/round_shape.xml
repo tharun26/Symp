@@ -4,7 +4,7 @@
 
     <gradient
         android:angle="270"
-        android:endColor="@color/abc_secondary_text_material_light"
+        android:endColor="@color/abc_primary_text_material_light"
         android:startColor="@color/abc_secondary_text_material_light"/>
 
     <corners

@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
@@ -19,17 +20,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gcm.GCMRegistrar;
 import com.inspiron.tharun26.manusys.adapter.NavDrawerListAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import con.inspiron.tharun26.manusys.model.NavDrawerItem;
 import static com.inspiron.tharun26.manusys.CommonUtilities.DISPLAY_MESSAGE_ACTION;
 import static com.inspiron.tharun26.manusys.CommonUtilities.SENDER_ID;
 import static com.inspiron.tharun26.manusys.CommonUtilities.EXTRA_MESSAGE;
+
 
 
 /*import android.content.BroadcastReceiver;
@@ -44,6 +48,8 @@ import android.widget.Toast;
 */
 
 public class MyActivity extends Activity {
+
+
 
 /*
 GCM
@@ -75,6 +81,8 @@ GCM
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+
 
        /*GCM*/
         cd = new ConnectionDetector(getApplicationContext());
@@ -144,15 +152,52 @@ GCM
                 // Waking up mobile if it is sleeping
                 WakeLocker.acquire(getApplicationContext());
 
+/*
+                DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+                Log.d("Insert: ", "Inserting ..");
+                db.addNotification(new NotificationDb(newMessage));
+                Log.d("Reading: ", "Reading all contacts..");
+                List<NotificationDb> notificationDbs = db.getAllContacts();
+
+                int i=0;
+                for (NotificationDb cn : notificationDbs) {
+                  //      db.deleteContact(cn);
+                   String log = "Id: "+cn.getId()+" ,Name: " + cn.getNotification()  ;
+                    //  Writing Contacts to log
+                    Log.d("Name: ", log);
+                }
+*/
+
+
+
                 /**
                  * Take appropriate action on this message
-                 * depending upon your app requirement
+                 * depending upon yrour app requirement
                  * For now i am just displaying it on the screen
                  * */
 
                 // Showing received message
                 // lblMessage.append(newMessage + "\n");
-                Toast.makeText(getApplicationContext(), "New Message: " + newMessage, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "New Message: " + newMessage, Toast.LENGTH_SHORT).show();
+
+
+               // TextView tv = (TextView)findViewById(R.id.mywidget);
+                //tv.append("                                        "+newMessage);
+
+
+
+
+            /*
+                int size=NotificationFragment.notification_title.length;
+                if(newMessage!="")
+                {
+                    NotificationFragment.notification_title[size+1]="Message";
+
+                }
+             */
+             //
+             //   NotificationFragment.notification_title[20]=newMessage;
+
 
                 // Releasing wake lock
                 WakeLocker.release();
@@ -174,6 +219,8 @@ GCM
             }
 
         }*/
+        //TextView tv = (TextView)findViewById(R.id.textView2);
+        //tv.setSelected(true);
 
 
         mTitle = mDrawerTitle = getTitle();
@@ -281,6 +328,11 @@ GCM
            //     fragment = new WhatsHotFragment();
                 break;
 
+            case 6:
+                    break;
+            case 7:
+                    fragment=new NotificationFragment();
+                    break;
             default:
                 break;
         }

@@ -1,5 +1,6 @@
 package com.inspiron.tharun26.manusys;
 
+import com.inspiron.tharun26.manusys.NotificationFragment;
 /**
  * Created by tharun26 on 25/1/15.
  */
@@ -9,8 +10,11 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gcm.GCMBaseIntentService;
+
+import java.util.List;
 
 import static com.inspiron.tharun26.manusys.CommonUtilities.SENDER_ID;
 import static com.inspiron.tharun26.manusys.CommonUtilities.displayMessage;
@@ -44,17 +48,70 @@ public class GCMIntentService extends GCMBaseIntentService {
         ServerUtilities.unregister(context, registrationId);
     }
 
+
+    protected void storedb(String message)
+    {
+        DatabaseHandler db = new DatabaseHandler(this);
+        Log.d("Insert: ", "Inserting ..");
+        db.addNotification(new NotificationDb(message));
+        Log.d("Reading: ", "Reading all contacts..");
+        List<NotificationDb> contacts = db.getAllContacts();
+
+        for (NotificationDb cn : contacts) {
+              // db.deleteContact(cn);
+            String log = "Id: "+cn.getId()+" ,Name: " + cn.getNotification()  ;
+            //  Writing Contacts to log
+            Log.d("Name: ", log);
+        }
+
+
+    }
+
+
+
+
+
+
     /**
      * Method called on Receiving a new message
      * */
     @Override
     protected void onMessage(Context context, Intent intent) {
+
         Log.i(TAG, "Received message");
+
+
         String message = intent.getExtras().getString("price");
+
+
+         storedb(message);
+
+
+
+        /*Planning to store it in a databse*/
+/*
+        DatabaseHandler db = new DatabaseHandler(this);
+         Log.d("Insert: ", "Inserting ..");
+        db.addNotification(new NotificationDb(message));
+         Log.d("Reading: ", "Reading all contacts..");
+        List<NotificationDb> contacts = db.getAllContacts();
+
+        for (NotificationDb cn : contacts) {
+        //    db.deleteContact(cn);
+           String log = "Id: "+cn.getId()+" ,Name: " + cn.getNotification()  ;
+           //  Writing Contacts to log
+            Log.d("Name: ", log);
+        }
+*/
+
+
 
         displayMessage(context, message);
         // notifies user
         generateNotification(context, message);
+
+
+
     }
 
     /**
@@ -90,7 +147,26 @@ public class GCMIntentService extends GCMBaseIntentService {
     /**
      * Issues a notification to inform the user that server has sent a message.
      */
-    private static void generateNotification(Context context, String message) {
+    int count=0;
+    private  void generateNotification(Context context, String message) {
+
+
+        /*
+
+            DatabaseHandler db = new DatabaseHandler(this);
+            Log.d("Insert: ", "Inserting ..");
+            db.addNotification(new NotificationDb(message));
+            Log.d("Reading: ", "Reading all contacts..");
+            List<NotificationDb> contacts = db.getAllContacts();
+
+            for (NotificationDb cn : contacts) {
+                //    db.deleteContact(cn);
+                String log = "Id: " + cn.getId() + " ,Name: " + cn.getNotification();
+                //  Writing Contacts to log
+                Log.d("Name: ", log);
+            }
+        */
+
         int icon = R.drawable.ic_logo;
         long when = System.currentTimeMillis();
         NotificationManager notificationManager = (NotificationManager)
@@ -114,6 +190,10 @@ public class GCMIntentService extends GCMBaseIntentService {
         // Vibrate if vibrate is enabled
         notification.defaults |= Notification.DEFAULT_VIBRATE;
         notificationManager.notify(0, notification);
+
+
+
+
 
     }
 
