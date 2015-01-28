@@ -37,7 +37,9 @@ public class NotificationFragment extends Fragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        notification_title = getResources().getStringArray(R.array.designation);
+
+//        notification_title = getResources().getStringArray(R.array.designation);
+
         notification_Items = new ArrayList<NotificationItem>();
 
         DatabaseHandler db = new DatabaseHandler(getActivity());
@@ -46,19 +48,21 @@ public class NotificationFragment extends Fragment {
         Log.d("Reading: ", "Notification Reading all contacts..");
         List<NotificationDb> notificationDbs = db.getAllContacts();
 
-        //int i=0;
+        int x=0;
         for (NotificationDb cn : notificationDbs) {
             //      db.deleteContact(cn);
+           notification_title[x++]=cn.getNotification();
             String log = "Id: "+cn.getId()+" ,Name: " + cn.getNotification()  ;
             //  Writing Contacts to log
-            Log.d("Name: ", log);
+            Log.d("Name: ", log+"**"+x);
+
         }
 
 
 
 
         int i;
-        for(i=0;i<notification_title.length;i++) {
+        for(i=0;i<x;i++) {
             notification_Items.add(new NotificationItem(notification_title[i]));
            // notification_Items.add(new NotificationItem("Welcome to Manusys!!"));
         }
