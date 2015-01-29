@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 import con.inspiron.tharun26.manusys.model.EventItem;
 
-public class EventsFragment extends ListFragment {
+public class EventsFragment extends Fragment {
 
     private ListView event_list;
     private String[] event_titles;
@@ -77,15 +77,27 @@ public class EventsFragment extends ListFragment {
         event_Items.add(new EventItem(event_titles[7],  event_icons.getResourceId(7, -1)));
     */
 
+
+        adapter = new EventListAdapter(getActivity(),event_Items);
+        event_list= (ListView) getActivity().findViewById(R.id.list123);
+        event_list.setAdapter(adapter);
+
+
+
+
+
+
+        /*
+
         // Recycle the typed array
         event_icons.recycle();
 
         // setting the nav drawer list adapter
         adapter = new EventListAdapter(getActivity(),event_Items);
         setListAdapter(adapter);
-
-        ListView list = getListView();
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        */
+       // ListView list = getListView();
+        event_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

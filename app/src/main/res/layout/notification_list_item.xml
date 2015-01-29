@@ -34,6 +34,11 @@
         android:layout_alignParentStart="true"
        />
 
+    <ScrollView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imageView">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,6 +46,8 @@
         android:text="Medium Text"
         android:id="@+id/textView"
         android:textStyle="bold"
+        android:textSize="15sp"
+
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -48,5 +55,6 @@
         android:layout_toRightOf="@+id/imageView"
         android:layout_toEndOf="@+id/imageView"
         android:padding="16sp"/>
+    </ScrollView>
 </RelativeLayout>
 </FrameLayout>

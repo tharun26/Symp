@@ -14,7 +14,7 @@
         android:cacheColorHint="@android:color/transparent"
         android:divider="@null"
 
-        app:effect="helix"
+        app:effect="cards"
         app:only_animate_new_items="false"
         app:only_animate_fling="false"
         app:max_velocity="0"

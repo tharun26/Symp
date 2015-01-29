@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
 
-    <ListView
-        android:id="@android:id/list"
+    <com.twotoasters.jazzylistview.JazzyListView
+        android:id="@+id/list123"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -13,8 +14,13 @@
         android:cacheColorHint="@android:color/transparent"
         android:divider="@null"
 
+        app:effect="cards"
+        app:only_animate_new_items="false"
+        app:only_animate_fling="false"
+        app:max_velocity="0"
+
         >
-    </ListView>
+    </com.twotoasters.jazzylistview.JazzyListView>
 
 
 </RelativeLayout>

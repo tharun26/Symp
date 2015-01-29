@@ -62,7 +62,7 @@ public class NotificationFragment extends Fragment {
 
 
         int i;
-        for(i=0;i<x;i++) {
+        for(i=x-1;i>=0;i--) {
             notification_Items.add(new NotificationItem(notification_title[i]));
            // notification_Items.add(new NotificationItem("Welcome to Manusys!!"));
         }
