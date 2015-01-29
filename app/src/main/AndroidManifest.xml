@@ -28,6 +28,7 @@
     <!-- Permission to vibrate -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         tools:replace="android:icon,android:theme"

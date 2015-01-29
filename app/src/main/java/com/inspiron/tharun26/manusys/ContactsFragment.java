@@ -4,7 +4,9 @@ package com.inspiron.tharun26.manusys;
  * Created by tharun26 on 19/1/15.
  */
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Contacts;
 import android.view.LayoutInflater;
@@ -29,6 +31,8 @@ public class ContactsFragment extends Fragment {
     private ContactListAdapter adapter;
 
     public ContactsFragment(){}
+
+
 
     public void onActivityCreated(Bundle savedInstanceState)
     {
@@ -91,6 +95,9 @@ public class ContactsFragment extends Fragment {
         /*adapter = new ContactListAdapter(getActivity(),contact_Items);
         setListAdapter(adapter);
         */
+
+
+
 
     }
 

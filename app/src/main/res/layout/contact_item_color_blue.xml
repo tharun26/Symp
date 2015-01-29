@@ -1,10 +1,14 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/apk/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="vertical"
-    android:background="@drawable/round_shape">
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:descendantFocusability="beforeDescendants"
+    android:alpha=".7">
+
 
 
     <RelativeLayout
@@ -14,7 +18,11 @@
         android:id="@+id/relative"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/card_background_selector">>
 
 
         <TextView
@@ -26,11 +34,13 @@
             android:padding="5dp"
             android:gravity="center"
             android:id="@+id/designation_name"
-
+            android:alpha="128"
 
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
+
+
 
         <ImageButton
             android:id="@+id/img2_Btn"
@@ -38,10 +48,14 @@
             android:layout_width="60dp"
             android:src="@drawable/tharun"
             android:layout_gravity="center_vertical"
+
+            android:gravity="center_vertical|center_horizontal"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/img1_Btn"
             android:layout_toEndOf="@+id/img1_Btn"
-            android:layout_marginLeft="157dp">
+            android:layout_marginLeft="157dp"
+
+            >
         </ImageButton>
 
         <ImageButton
@@ -55,7 +69,8 @@
             android:layout_marginLeft="50dp"
             android:layout_above="@+id/contact2"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            >
 
         </ImageButton>
 
@@ -85,4 +100,4 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+</FrameLayout>
