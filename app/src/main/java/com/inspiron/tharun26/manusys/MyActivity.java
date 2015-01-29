@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -62,6 +63,9 @@ GCM
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
+
+    private ListView mRightDrawerList;
+
     private ActionBarDrawerToggle mDrawerToggle;
 
     // nav drawer title
@@ -235,6 +239,8 @@ GCM
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
+        mRightDrawerList=(ListView) findViewById(R.id.right_drawer);
+
         navDrawerItems = new ArrayList<NavDrawerItem>();
 
         // adding nav drawer items to array
@@ -264,6 +270,8 @@ GCM
                 navDrawerItems);
         mDrawerList.setAdapter(adapter);
 
+        mRightDrawerList.setAdapter(adapter);
+
         // enabling action bar app icon and behaving it as toggle button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -273,6 +281,8 @@ GCM
                 R.string.app_name, // nav drawer open - description for accessibility
                 R.string.app_name // nav drawer close - description for accessibility
         ) {
+
+
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
                 // calling onPrepareOptionsMenu() to show action bar icons
@@ -288,7 +298,7 @@ GCM
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
-
+        mRightDrawerList.setOnItemClickListener(new SlideMenuClickListener());
         if (savedInstanceState == null) {
             // on first time display view for first nav item
             displayView(0);
